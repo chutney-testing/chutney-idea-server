@@ -6,30 +6,45 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.1-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
         <chutney.version>1.6.0</chutney.version>
-        <h2.version>1.4.197</h2.version>
-        <eddsa.version>0.2.0</eddsa.version>
-        <activemq-broker.version>5.15.11</activemq-broker.version>
         <mainClass>com.chutneytesting.ServerBootstrap</mainClass>
+        <spring-boot-maven.version>2.7.5</spring-boot-maven.version>
+
+        <ojdbc6.version>11.2.0.4</ojdbc6.version>
+        <eddsa.version>0.3.0</eddsa.version>
     </properties>
 
     <scm>
         <url>https://github.com/chutney-testing/chutney-idea-server.git</url>
         <connection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</connection>
         <developerConnection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</developerConnection>
-        <tag>1.3.0</tag>
+        <tag>HEAD</tag>
     </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.chutneytesting</groupId>
+                <artifactId>chutney-parent</artifactId>
+                <version>${chutney.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>com.chutneytesting</groupId>
             <artifactId>server</artifactId>
-            <version>${chutney.version}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -37,7 +52,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
         </dependency>
         <dependency>
             <groupId>net.i2p.crypto</groupId>
@@ -48,20 +62,17 @@
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-broker</artifactId>
-            <version>${activemq-broker.version}</version>
             <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.18</version>
+            <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.oracle.jdbc/ojdbc6 -->
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
+            <version>${ojdbc6.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -69,7 +80,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
         </dependency>
     </dependencies>
 
@@ -78,7 +88,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.6.3</version>
+                <version>${spring-boot-maven.version}</version>
                 <configuration>
                     <executable>true</executable>
                     <layout>ZIP</layout>

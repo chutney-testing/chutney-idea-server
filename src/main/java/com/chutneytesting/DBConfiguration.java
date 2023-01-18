@@ -46,13 +46,10 @@ public class DBConfiguration {
             };
         }
 
-        @Bean(
-                value = {"dbServer"},
-                destroyMethod = "stop"
-        )
+        @Bean(value = "dbServer", destroyMethod = "stop")
         Server dbServer(@Value("${chutney.db-server.port}") int dbServerPort, @Value("${chutney.db-server.base-dir:~/.chutney}") String baseDir) throws SQLException {
-            Server h2Server = Server.createTcpServer(new String[]{"-tcp", "-tcpPort", String.valueOf(dbServerPort), "-tcpAllowOthers", "-baseDir", baseDir}).start();
-            DBConfiguration.LOGGER.debug("Started H2 server " + h2Server.getURL());
+            Server h2Server = Server.createTcpServer("-tcp", "-tcpPort", String.valueOf(dbServerPort), "-tcpAllowOthers", "-baseDir", baseDir, "-ifNotExists").start();
+            LOGGER.debug("Started H2 server " + h2Server.getURL());
             return h2Server;
         }
     }

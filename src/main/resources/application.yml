@@ -1,5 +1,6 @@
 agent-name: chutney-server-agent-0
 server:
+  instance-name: Local instance
   port: 8350
   http:
     port: 9350
@@ -8,7 +9,6 @@ server:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
     min-response-size: 1024
-
   servlet:
     session:
       cookie:
@@ -17,18 +17,20 @@ server:
       tracking-modes: cookie
 
 management:
+  server:
+    port: -1
   endpoints:
+    enabled-by-default: false
     web:
       exposure:
-        include: "*"
-      cors:
-        allowed-origins: '*'
-        allowed-methods: GET
-  endpoint:
-    health:
-      show-details: always
+        exclude: "*"
+    jmx:
+      exposure:
+        exclude: "*"
 
 spring:
+  application:
+    name: chutney-server
   liquibase:
     change-log: classpath:/changelog/db.changelog-master.xml
   profiles:
@@ -41,25 +43,26 @@ chutney:
     configuration-folder: ${chutney.configuration-folder}/environment
   jira:
     configuration-folder: ${chutney.configuration-folder}/jira
-  db-server:
-    port: 9360
-    base-dir: ./.chutney
+
+  server:
+    execution:
+      async:
+        publisher:
+          ttl: 5
+          debounce: 250
+
   engine:
     reporter:
       publisher:
         ttl: 5
-  execution:
-    async:
-      publisher:
-        ttl: 5
-        debounce: 250
-  backups:
-    root: backups
-  examples:
-    active: false
 
-orient:
-  path: .chutney/data/orient
-  contextConfiguration:
-    "[storage.diskCache.diskFreeSpaceLimit]": 384
-    "[storage.diskCache.bufferSize]": 1024
+  actions:
+    sql:
+      max-logged-rows: 20
+
+  component:
+    orient:
+      path: .chutney/data/orient
+      contextConfiguration:
+        "[storage.diskCache.diskFreeSpaceLimit]": 384
+        "[storage.diskCache.bufferSize]": 1024

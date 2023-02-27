@@ -6,7 +6,7 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.7.0</version>
+    <version>1.7.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +26,7 @@
         <url>https://github.com/chutney-testing/chutney-idea-server.git</url>
         <connection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</connection>
         <developerConnection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</developerConnection>
-        <tag>1.7.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>

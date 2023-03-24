@@ -6,15 +6,15 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.7.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
-        <chutney.version>1.7.0</chutney.version>
+        <chutney.version>1.7.1</chutney.version>
         <mainClass>com.chutneytesting.ServerBootstrap</mainClass>
         <spring-boot-maven.version>2.7.5</spring-boot-maven.version>
 

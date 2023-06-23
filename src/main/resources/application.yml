@@ -60,9 +60,3 @@ chutney:
     sql:
       max-logged-rows: 20
 
-  component:
-    orient:
-      path: .chutney/data/orient
-      contextConfiguration:
-        "[storage.diskCache.diskFreeSpaceLimit]": 384
-        "[storage.diskCache.bufferSize]": 1024

@@ -6,7 +6,7 @@
 
     <groupId>com.chutneytesting</groupId>
     <artifactId>idea-server</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,9 +14,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <chutney.version>2.0.0</chutney.version>
+        <chutney.version>2.1.0</chutney.version>
         <mainClass>com.chutneytesting.ServerBootstrap</mainClass>
-        <spring-boot-maven.version>2.7.5</spring-boot-maven.version>
+        <spring-boot-maven.version>2.7.14</spring-boot-maven.version>
 
         <ojdbc6.version>11.2.0.4</ojdbc6.version>
         <eddsa.version>0.3.0</eddsa.version>
@@ -26,7 +26,7 @@
         <url>https://github.com/chutney-testing/chutney-idea-server.git</url>
         <connection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</connection>
         <developerConnection>scm:git:git@github.com/chutney-testing/chutney-idea-server.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>2.1.0</tag>
     </scm>
 
     <dependencyManagement>
